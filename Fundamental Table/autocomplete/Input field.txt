@@ -1,0 +1,6 @@
+Place above header:
+<script type="text/javascript" src="autocomplete/js/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="autocomplete/js/jquery.autocomplete.min.js"></script>
+  <script type="text/javascript" src="autocomplete/js/currency-autocomplete.js"></script>
+
+<input type="text" name="currency" class="biginput" id="autocomplete">
