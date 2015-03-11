@@ -8,3 +8,4 @@
 /*  Define the background color for all the EVEN background rows  */
 .table1 tr:nth-child(even){background: #5C8AE6;}
 
+select {width:100%;}
