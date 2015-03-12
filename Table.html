@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html>
  
-  <script type="text/javascript" src="vendors/autocomplete/js/jquery-1.9.1.min.js"></script>
-  <script type="text/javascript" src="vendors/autocomplete/js/jquery.autocomplete.min.js"></script>
-  <script type="text/javascript" src="vendors/autocomplete/js/currency-autocomplete.js"></script>
-
- 
 	<head>
 
 	   <title>Table Test</title>
+        <!-- Framework -->
+        <script src="vendors/stockrender-apprender.1.0.0.min.js"></script>
+        <!-- Framework -->
 
-	   <link rel="stylesheet" type="text/css" media="all" href="css/style.css">
-       <script src="js/Add.js"></script>
-       <script src="js/Remove.js"></script>
-       <script src="js/EnterStock.js"> </script>
-
+        <!-- Supplementary Code -->
+        <!-- JS -->
+        <script src="js/Runner.js"></script>
+        <script src="js/main.js"></script>
+        <script src="js/Add.js"></script>
+        <script src="js/Remove.js"></script>
+        <script src="js/EnterStock.js"> </script>
+        <script type="text/javascript" src="vendors/autocomplete/js/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="vendors/autocomplete/js/jquery.autocomplete.min.js"></script>
+        <script type="text/javascript" src="vendors/autocomplete/js/currency-autocomplete.js"></script>
+        <!-- JS -->
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" media="all" href="css/style.css">
+        <link rel="stylesheet" type="text/css" href="css/loading-anim.css">
+        <!-- CSS -->
+        <!-- Supplementary Code -->
+	          
 	</head>
 
-	<body>  
+	<body>
+
+    <input type="text" name="currency" class="biginput" id="autocomplete">
 
     	<table width = "50%" cellspacing="0" border="2" cellpadding="9" id="table1" class="table1">
             <col width="31%">
@@ -25,7 +37,7 @@
             <col width="31%"> 
             <col width="7%">
 
-            <tr  onclick="OnClick(this) ">
+            <tr>
                 <div id="outputbox">
                 <th  colspan="4" <p id="enterStock"><span id ="test">Stock Name</span></p> </th>  
             </tr>

@@ -17,6 +17,8 @@ window.onload = function() {
       input = document.createElement("input");
       input.type = "text";
       input.size = Math.max(text.length / 4 * 3, 4);
+      input.id = "autocomplete";
+      input.name = "currency";
       span.parentNode.insertBefore(input, span);
       // Focus it, hook blur to undo
       input.focus();
