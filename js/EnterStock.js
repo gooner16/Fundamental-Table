@@ -30,8 +30,7 @@ window.onload = function() {
         span.innerHTML = input.value;
         // Show the span again
         span.style.display = "";
-        }   
-       
+        } 
       };
     }
   };
