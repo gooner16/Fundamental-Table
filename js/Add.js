@@ -6,7 +6,6 @@ function AddRowFunction() {
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
     var yourSelect = document.getElementById( "selectBox" );
-    
 
     cell1.innerHTML = yourSelect.options[ yourSelect.selectedIndex ].value;
     cell2.innerHTML = "[Value]";
@@ -20,31 +19,28 @@ function AddRowFunction1(){
 	var cell2 = row.insertCell(1);
 	var cell3 = row.insertCell(2);
 	var cell4 = row.insertCell(3);
-	var mySelect
-	cell1.innerHTML = "[mySelect]";
+    var yourSelect = document.getElementById( "selectBox" );
+	
+	cell1.innerHTML = '<select id="selectBox1">';
 	cell2.innerHTML = "[Value]";
 	cell3.innerHTML = "[Change]";
 	cell4.innerHTML = '<input type="button" value="X" onclick="deleteRow(this)">';
-	
-	var myDiv = document.getElementById("mySelect");
-	var array = ["Volvo","Saab","Mercades","Audi"];//Create array of options to be added
 
-	selectList = document.createElement("select");
-	selectList.id = "mySelect";
-	myDiv.appendChild(selectList);//Create and append select list
-	
+	var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base","EPS Diluted","Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Cash Flow","Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
+	//Create array of options to be added
 	for (var i = 0; i < array.length; i++) {
 		var option = document.createElement("option");
 		option.value = array[i];
 		option.text = array[i];
-		selectList.appendChild(option);//Create and append the options
+		selectBox1.appendChild(option);//Create and append the options
 }
 }
 
 var executed = false
 function AppendOptions(){
+
 	if (!(executed)){
-		var array = ["Earnings","Volume","Daily Volume","Forward Earnings"];
+		var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base","EPS Diluted","Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Cash Flow","Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
 		//Create array of options to be added
 		for (var i = 0; i < array.length; i++) {
 			var option = document.createElement("option");
