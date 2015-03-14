@@ -29,7 +29,7 @@
 
 	<body>
 
-    <input type="text" name="currency" class="biginput" id="autocomplete">
+    <!-- <input type="text" name="currency" class="biginput" id="autocomplete"> --> 
 
     	<table width = "50%" cellspacing="0" border="2" cellpadding="9" id="table1" class="table1">
             <col width="31%">
@@ -39,7 +39,8 @@
 
             <tr>
                 <div id="outputbox">
-                <th  colspan="4" <p id="enterStock"><span id ="test">Stock Name</span></p> </th>  
+                <th colspan="4"> <p id="enterStock"><input id="autocomplete" type="text" name="currency"><span id="stock">Stock Name</span></input></p></th>
+            <script> document.getElementById("autocomplete").style.display = "none"; </script>
             </tr>
 
             <tr>

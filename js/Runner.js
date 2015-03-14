@@ -20,7 +20,7 @@ Runner.loadData = function loadData(AppData, stockId){
 	Runner.clearUL('fundamental-data');//	Clear ul for fundmentals
 	AppData.v1.fundamental.GET(stockId,'epsbase')
 	.then(function(data){
-
+		console.log(data);
 		Runner.createTable(data.response.data,'fundamental-data')
 
 	}, function(jqXHR){
@@ -113,8 +113,7 @@ Runner.createTable = function createTable(data, containerId) {
 		//-----------------------------------------
 		li = document.createElement('li');
 		span = document.createElement('span');
-		li.appendChild(span);
-
+		li.appendChild(span); y7
 		//-----------------------------------------
 		//	Append to ul
 		//-----------------------------------------
