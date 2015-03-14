@@ -38,75 +38,33 @@
             <col width="7%">
 
             <tr>
+<<<<<<< HEAD
                 <div id="outputbox">
                 <th colspan="4"> <p id="enterStock"><input id="autocomplete" type="text" name="currency"><span id="stock">Stock Name</span></input></p></th>
             <script> document.getElementById("autocomplete").style.display = "none"; </script>
+=======
+					<div id="outputbox">
+					<th  colspan="4" <p id="enterStock"><span id ="test">Stock Name</span></p> </th>  
+>>>>>>> 4d2ee4c5ea82187c63c3106eb3b060ea8381e883
             </tr>
 
             <tr>
-                <td>Fundamental</td>
-                <td>Value</td>
-                <td colspan="2">% Change Since Last Quarter</td>
+					<td>Fundamental</td>
+					<td>Value</td>
+					<td colspan="2">% Change Since Last Quarter</td>
             </tr>
 
             <tr>
+				
              <td> 
-             <select id= "selectBox" width="25%" onchange="AddRowFunction()"> 
-                <option value="Earnings"> Earnings </option> 
-                <option value="Volume"> Volume </option> 
-                <option value="Daily Volume"> Daily Volume </option> 
-                <option value="Earnings"> Earnings </option> 
-                <option value="Forward Earnings"> Forward Earnings </option> 
-                <option value="Sales"> Sales</option>
-                <option value="Book Value"> Book Value</option>
-                <option value="Cash"> Cash</option>
-                <option value="Free Cash Flow"> Free Cash Flow</option>
-                <option value="Dividend Yield"> Dividend Yield</option>
-                <option value="Assets"> Assets</option>
-                <option value="Return on Equity"> Return on Equity</option>
-                <option value="Return on Invenstment"> Return on Investment</option>
-                <option value="Current Ratio"> Current Ratio</option>
-                <option value="Quick Ratio"> Quick Ratio </option> 
-                <option value="Long Term Debt"> Long Term Debt</option> 
-                <option value="Equity"> Equity </option> 
-                <option value="Debt"> Debt </option> 
-                <option value="Gross Margin"> Gross Margin </option> 
-                <option value="Operating Margin"> Operating Margin</option>
-                <option value="Net Profit Margin"> Net Profit Margin</option>
-                <option value="Payout Ratio"> Payout Ratio</option>
-                <option value="Insider Ownership"> Insider Ownership</option>
-                <option value="Insider Transactions"> Insider Transactions</option>
-                <option value="Institutional Ownership"> Institutional Ownership</option>
-                <option value="Institutional Transactions"> Institutional Transactions</option>
-                <option value="Float Short"> Float Short</option>
-                <option value="Option/Snort"> Option/Snort</option>
-                <option value="Earnings Date"> Earnings Date</option> 
-                <option value="Volatility"> Volatility </option> 
-                <option value="RSI (daily)"> RSI (daily) </option> 
-                <option value="Price Change Daily"> Price Change Daily </option> 
-                <option value="Beta"> Beta</option>
-                <option value="Enterprise Value"> Enterprise Value</option>
-                <option value="Number of Employees"> Number of Employees</option>
-                <option value="Stochastic Oscillator"> Stochastic Oscillator</option>
-                <option value="Inventory Turnover"> Inventory Turnover</option>
-                <option value="Receivable Turnover"> Receivable Turnover</option>
-                <option value="Total Expenses"> Total Expenses</option>
-                <option value="Share Outstanding"> Share Outstanding</option>
-                <option value="Splits"> Splits </option>
-                <option value="Merger and Acquisition "> Merger and Acquisition  </option> 
-                <option value="Current Fiscal Year Down Revision"> Current Fiscal Year Down Revision </option> 
-                <option value="Current Fiscal Year Up Revision"> Current Fiscal Year Up Revision </option> 
-                <option value="Current Quarter Up Revision"> Current Quarter Up Revision</option> 
-                <option value="Current Quarter Down Revision"> Current Quarter Down Revision </option>
-               
-              </select>
+				<select id= "selectBox" width="25%" onclick="AppendOptions()" onchange="AddRowFunction1()"> 
+					<option selected>
               </td>
-              <td></td>
-              <td colspan="2"></td>
+              <td colspan="3"></td>
             </tr>
 
     	</table>
-     
 	</body>
-
+<script>
+</script>
 </html>
