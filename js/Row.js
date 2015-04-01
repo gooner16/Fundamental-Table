@@ -3,6 +3,39 @@ var y = 0
 var arrayExe = [true]
 //Number of times either of the functions has been executed
 
+/*function AppendOptions(){
+	if (!(executed0)) {
+		var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base","EPS Diluted","Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Cash Flow","Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
+		//Create array of options to be added
+		for (var i = 0; i < array.length; i++) {
+			var option = document.createElement("option");
+			option.value = array[i];
+			option.text = array[i];
+			selectBox.appendChild(option);
+			//Create and append the options
+		}/*Add options to select list using arrays*/
+		//executed0 = true;
+	//}/* Only execute if not already executed */
+//}
+
+
+function AppendOptions1(me,ind){
+	if (!(arrayExe[ind])) {
+		me.remove(0);
+		//Remove first option of selectbox
+		var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base","EPS Diluted","Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Cash Flow","Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
+		//Create array of options to be added
+		for (var i = 0; i < array.length; i++) {
+			var option = document.createElement("option");
+			option.value = array[i];
+			option.text = array[i];
+			me.appendChild(option);
+			//Create and append the options
+		}//Add options to select list using arrays
+		arrayExe[ind] = true;
+	}	
+}
+
 function AddRowFunction(){
 	var yourSelect = document.getElementById( "selectBox" );
 	var option = document.createElement("option");
@@ -21,6 +54,8 @@ function AddRowFunction(){
 		x++ //Next row will be added below this one
 		y++ //This is used to assign a different string to every selectBox
 
+		//var onclick = 
+
 		cell1.innerHTML = '<select id = "selectBox0" onclick = "AppendOptions1(this,y)">';
 		cell2.innerHTML = "[Value]";
 		cell3.innerHTML = "[Change]";
@@ -31,52 +66,19 @@ function AddRowFunction(){
 		
 		var newId = "selectBox" + y ;
 		//This will be the Id for the selectBox in row
-		document.getElementById("selectBox0").id = newId
+		document.getElementById("selectBox0").id = newId;
 		//Give select box a new id
-		arrayExe[y] =  false
+		arrayExe[y] =  false;
 	}
-	alert(document.getElementById("selectBox5").id)
-	
-		
+	//alert(document.getElementById("selectBox5").id)
 }
 
 var executed0 = false
 //Variable only for this function
-function AppendOptions(){
-	if (!(executed0)) {
-		var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base","EPS Diluted","Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Cash Flow","Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
-		//Create array of options to be added
-		for (var i = 0; i < array.length; i++) {
-			var option = document.createElement("option");
-			option.value = array[i];
-			option.text = array[i];
-			selectBox.appendChild(option);
-			//Create and append the options
-		}/*Add options to select list using arrays*/
-		executed0 = true
-	}/* Only execute if not already executed */
-}
-
-function AppendOptions1(me,ind){
-	if (!(arrayExe[ind])) {
-		me.remove(0)
-		//Remove first option of selectbox
-		var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base","EPS Diluted","Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Cash Flow","Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
-		//Create array of options to be added
-		for (var i = 0; i < array.length; i++) {
-			var option = document.createElement("option");
-			option.value = array[i];
-			option.text = array[i];
-			me.appendChild(option);
-			//Create and append the options
-		}//Add options to select list using arrays
-		arrayExe[ind] = true
-	}	
-}
 
 function deleteRow(r) {
     var i = r.parentNode.parentNode.rowIndex;
     document.getElementById("table1").deleteRow(i);
-	x--
+	x--;
 	//for "x", please see above
 }

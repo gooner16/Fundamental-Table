@@ -21,6 +21,7 @@
 
 	<!-- CSS -->
 	<link rel = "stylesheet" type = "text/css" media = "all" href = "css/style.css">
+	<link rel = "stylesheet" type = "text/css" href = "css/loading-anim.css">
 
 
 
@@ -28,14 +29,14 @@
 
 <body style = "width: 900px">
 	<table id = "table1" class = "table1" cellspacing = "0" border = "1px" cellpadding = "9" style = "margin-left: 350px; width: 450px;">
-		<col width = "150px">
+			<col width = "150px">
 	            	<col width = "50px">
 	            	<col width = "200px"> 
 	            	<col width = "20px">
 
 	<tr>
 		<div id = "outputbox">
-		<th colspan = "4"><p id="enterStock"><input id = "autocomplete" type = "text" name = "currency"><span id = "stock"> Stock Name </span></p></th>
+		<th colspan = "4"><p id="enterStock"><input id = "autocomplete" type = "text" name = "currency"><span id = "stock"> Stock Name </input></span></p></th>
 		<script>document.getElementById("autocomplete").style.display  =  "none";</script>
 		</div>
 	</tr>
@@ -48,8 +49,32 @@
 
 	<tr> <!-- Add select object to row-->
 		<td colspan = "4">
-		<select id = "selectBox" onclick = "AppendOptions()" onchange = "AddRowFunction()">
-			<option value="Fundamentals"> -- Fundamentals -- </option>
+		<select id = "selectBox" onchange = "AddRowFunction()">
+			<option value = "Fundamentals"> -- Fundamentals -- </option>
+			<option value = "Assets"> Assets </option>
+			<option value = "Book Value"> Book Value </option>
+			<option value = "Capital Expenditures"> Capital Expenditures </option>
+			<option value = "Cash"> Cash </option>
+			<option value = "Cost of Good Sold"> Cost of Good Sold </option>
+			<option value = "DPS"> DPS </option>
+			<option value = "EPS Base"> EPS Base </option>
+			<option value = "EPS Diluted"> EPS Diluted </option>
+			<option value = "Float Shares"> Float Shares </option>
+			<option value = "Good Will"> Good Will </option>
+			<option value = "Income After Tax"> Income After Tax </option>
+			<option value = "Income Before Tax"> Income Before Tax </option>
+			<option value = "Institutional Own"> Institutional Own </option>
+			<option value = "Inventory"> Inventory </option>
+			<option value = "Liability"> Liability </option>
+			<option value = "Long Term Debt"> Long Term Debt </option>
+			<option value = "Net Income"> Net Income </option>
+			<option value = "Number of Employees"> Number of Employees </option>
+			<option value = "Operating Cash Flow"> Operating Cash Flow </option>
+			<option value = "Operating Income"> Operating Income </option>
+			<option value = "Revenue"> Revenue </option>
+			<option value = "Short Term Debt"> Short Term Debt </option>
+			<option value = "Total Operating Expense"> Total Operating Expense </option>
+			<!-- <option value = "">  </option> -->
 		
 		</select>
 		</td>
@@ -57,6 +82,10 @@
 	</tr>
 
 	</table>
+
+<script type="text/javascript">
+	//window.onload = AppendOptions();
+</script>
 
 </body>
 </html>
