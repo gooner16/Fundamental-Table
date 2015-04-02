@@ -32,7 +32,7 @@ Runner.loadData = function loadData(AppData, stockId){
 		checks ++;
 		if(checks === 2){
 			Runner.toggleOverhead();
-		}
+		};
 
 	});
 
