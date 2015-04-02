@@ -27,17 +27,10 @@ console.log(fundata)
 
 		checks ++;
 		if(checks === 2){
-			Runner.toggleOverhead();
+			//Runner.toggleOverhead();
 		}
 
 	});}
-	AppData.v1.Tickerlist.GET('json')
-	.then(function(data){
-		console.log(data);
-	});
-
-
-
 };
 StockRender.AppRender.register({
 	id: "49e90eee6ce1942a94136fc8db19319c",

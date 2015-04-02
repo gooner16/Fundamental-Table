@@ -30,33 +30,18 @@ window.onload = function() {
               inputStock = input.value;
               // Show the span again
               span.style.display = "";
-
-        //Test------------------------------------------------------------------------------
-        var rowNum = document.getElementById("table1").rows.length;            
-        if(inputStock == 'AAPL')
-        {
-            if(rowNum < 5) 
-            {
-             var table = document.getElementById("table1");
-             var row = table.insertRow(3);
-             var cell1 = row.insertCell(0);
-             var cell2 = row.insertCell(1);
-             var cell3 = row.insertCell(2);
-             var cell4 = row.insertCell(3);
-             cell1.innerHTML = "Apple";
-             cell2.innerHTML = "$124.83";
-             cell3.innerHTML = "+0.38";
-             cell4.innerHTML = '<p>(o)</p>';
-           }
-        } else {
-          console.log('Stock not found');    
-          while(rowNum > 4) 
-          {
-             document.getElementById("table1").deleteRow(rowNum - 2);
-             rowNum = document.getElementById("table1").rows.length; 
-           }
-        }
-        //Test------------------------------------------------------------------------------
+              //Clears fundata array when enter is pressed
+                function ClearFunction (counter) {
+                  counter ++;
+                  if (counter>0) {
+                  //fundata.length = 0
+                  fundata = [];
+                  data = [];
+                  console.log("Clear Data")
+                  };
+                }
+                ClearFunction(0);
+              
             }   
           }
         }
