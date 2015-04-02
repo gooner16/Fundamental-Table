@@ -29,19 +29,7 @@ window.onload = function() {
               span.innerHTML = input.value;
               inputStock = input.value;
               // Show the span again
-              span.style.display = "";
-              //Clears fundata array when enter is pressed
-                function ClearFunction (counter) {
-                  counter ++;
-                  if (counter>0) {
-                  //fundata.length = 0
-                  fundata = [];
-                  data = [];
-                  console.log("Clear Data")
-                  };
-                }
-                ClearFunction(0);
-              
+              span.style.display = "";              
             }   
           }
         }

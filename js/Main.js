@@ -1,6 +1,5 @@
 'use strict'; //"operatingcashflow","espdiluted",
  var fundamentalOptions = ['assets', 'bookvalue' ,"capitalexpenditures" ,"cash","costofgoodssold","dps",'epsbase', "floatshares","goodwill","incomeaftertax",'incomebeforetax', "institutionalown", "inventory","liability","longtermdebt",'netincome' , "numofemployees" ,"operatingincome","revenue","shorttermdebt","totaloperatingexpense"]
-
  var fundata = new Array()
  function Runner () {}																											
 
@@ -10,27 +9,35 @@ Runner.loadData = function loadData(AppData, stockId){
 	// /v1/fundamentals
 	//-----------------------------------------
 	for( var i=0; i< fundamentalOptions.length; i++) {
-		var tempfund = fundamentalOptions[i]
 
-	AppData.v1.fundamental.GET(stockId,tempfund)
-	.then(function(data){
-
+		// use closure from
+		// http://stackoverflow.com/questions/19564172/for-loop-wont-pass-i-variable-to-jquery-function-inside-the-loop
 		
-	fundata.push(data.response.data[0][1])
-console.log(fundata)
-	} ,
-	 function(jqXHR){
+		(function(i){
+			var tempfund = fundamentalOptions[i];
 
-		throw new Error('Failed to load data!',jqXHR);
+			AppData.v1.fundamental.GET(stockId,tempfund)
+			.then(function(data){
 
-	}).then(function(){
-
-		checks ++;
-		if(checks === 2){
-			//Runner.toggleOverhead();
-		}
-
-	});}
+			var curr = {
+				'label': tempfund,
+				'val': data.response.data[0][1]
+			}	
+			//console.log(curr)
+			//fundata.push(data.response.data[0][1])
+			fundata.push(curr);
+			console.log(fundata)
+			
+			}, function(jqXHR){
+				throw new Error('Failed to load data!',jqXHR);
+			}).then(function(){
+				checks ++;
+				if(checks === 2){
+					//Runner.toggleOverhead();
+				}
+			});
+		})(i);
+	}
 };
 StockRender.AppRender.register({
 	id: "49e90eee6ce1942a94136fc8db19319c",
@@ -73,7 +80,7 @@ StockRender.AppRender.register({
 		
 		$('#autocomplete').keypress(function(e){
 			if( e.which === 13 ) {
-				
+				fundata = new Array();
 				Runner.loadData(AppData, $('#autocomplete')[0].value);
 				return;
 			}
