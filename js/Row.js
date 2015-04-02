@@ -3,25 +3,9 @@ var y = 0
 var arrayExe = [true]
 //Number of times either of the functions has been executed
 
-/*function AppendOptions(){
-	if (!(executed0)) {
-		var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base","EPS Diluted","Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Cash Flow","Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
-		//Create array of options to be added
-		for (var i = 0; i < array.length; i++) {
-			var option = document.createElement("option");
-			option.value = array[i];
-			option.text = array[i];
-			selectBox.appendChild(option);
-			//Create and append the options
-		}/*Add options to select list using arrays*/
-		//executed0 = true;
-	//}/* Only execute if not already executed */
-//}
-
-
-function AppendOptions1(me,ind){
-	if (!(arrayExe[ind])) {
-		me.remove(0);
+function AppendOptions1(me,num,ind){
+	if (!(arrayExe[num])) {
+		//me.remove(0);
 		//Remove first option of selectbox
 		var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base","EPS Diluted","Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Cash Flow","Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
 		//Create array of options to be added
@@ -32,8 +16,11 @@ function AppendOptions1(me,ind){
 			me.appendChild(option);
 			//Create and append the options
 		}//Add options to select list using arrays
-		arrayExe[ind] = true;
-	}	
+		arrayExe[num] = true;
+	}
+	me.selectedIndex = ind - 1
+	//This would give you selected option to become the one actually being selected, and it bypass the bug.
+
 }
 
 function AddRowFunction(){
@@ -41,8 +28,8 @@ function AddRowFunction(){
 	var option = document.createElement("option");
 		option.value = yourSelect.options[ yourSelect.selectedIndex ].value;
 		option.text = yourSelect.options[ yourSelect.selectedIndex ].value;
+	var Index = yourSelect.selectedIndex;
 		//the option would be the one selected on selectBox
-	//alert(option.value)
 	
 	if (option.value != "Fundamentals") {
 		var table = document.getElementById("table1");
@@ -54,21 +41,19 @@ function AddRowFunction(){
 		x++ //Next row will be added below this one
 		y++ //This is used to assign a different string to every selectBox
 
-		//var onclick = 
-
-		cell1.innerHTML = '<select id = "selectBox0" onclick = "AppendOptions1(this,y)">';
+		cell1.innerHTML = '<select id = "selectBox0">';
 		cell2.innerHTML = "[Value]";
 		cell3.innerHTML = "[Change]";
 		cell4.innerHTML = '<input type = "button" value = "X" onclick = "deleteRow(this)">';
 
-		selectBox0.appendChild(option);
-		//Create and append the selected option
+		AppendOptions1(selectBox0,y,Index)
+		//Puting the function here will bypass the "onclick" event
 		
 		var newId = "selectBox" + y ;
 		//This will be the Id for the selectBox in row
 		document.getElementById("selectBox0").id = newId;
 		//Give select box a new id
-		arrayExe[y] =  false;
+		arrayExe[y] = false;
 	}
 	//alert(document.getElementById("selectBox5").id)
 }
