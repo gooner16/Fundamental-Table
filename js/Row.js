@@ -1,21 +1,18 @@
 var x = 0
 var y = 0
 var arrayExe = [true]
-<<<<<<< HEAD
+
 var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base","Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
-		//"EPS Diluted","Operating Cash Flow",
-=======
->>>>>>> origin/master
+//"EPS Diluted","Operating Cash Flow",
 //Number of times either of the functions has been executed
 
 function AppendOptions1(me,num,ind){
 	if (!(arrayExe[num])) {
 		//me.remove(0);
 		//Remove first option of selectbox
-<<<<<<< HEAD
-=======
+
 		var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base","EPS Diluted","Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Cash Flow","Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
->>>>>>> origin/master
+
 		//Create array of options to be added
 		for (var i = 0; i < array.length; i++) {
 			var option = document.createElement("option");
@@ -32,11 +29,10 @@ function AppendOptions1(me,num,ind){
 }
 
 function AddRowFunction(){
-<<<<<<< HEAD
+
 	Name = $('#autocomplete')[0].value
 	if ( Name != "" ){
-=======
->>>>>>> origin/master
+
 	var yourSelect = document.getElementById( "selectBox" );
 	var option = document.createElement("option");
 		option.value = yourSelect.options[ yourSelect.selectedIndex ].value;
@@ -53,7 +49,6 @@ function AddRowFunction(){
 		var cell4 = row.insertCell(3);
 		x++ //Next row will be added below this one
 		y++ //This is used to assign a different string to every selectBox
-<<<<<<< HEAD
 	
 	var boxValue
 	for ( var k = 0; k<array.length ; k ++){
@@ -64,11 +59,6 @@ function AddRowFunction(){
 }
 		cell1.innerHTML = '<select id = "selectBox0">';
 		cell2.innerHTML = boxValue;
-=======
-
-		cell1.innerHTML = '<select id = "selectBox0">';
-		cell2.innerHTML = "[Value]";
->>>>>>> origin/master
 		cell3.innerHTML = "[Change]";
 		cell4.innerHTML = '<input type = "button" value = "X" onclick = "deleteRow(this)">';
 
@@ -82,12 +72,10 @@ function AddRowFunction(){
 		arrayExe[y] = false;
 	}
 	//alert(document.getElementById("selectBox5").id)
-<<<<<<< HEAD
+
 	}else{
 	alert("Please Enter a Stock Name")
 }
-=======
->>>>>>> origin/master
 }
 
 var executed0 = false
