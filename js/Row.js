@@ -42,18 +42,22 @@ function AddRowFunction(){
 				break;
 				}
 			}
-		
-				cell1.innerHTML = '<select id = "selectBox0">';
-				cell2.innerHTML = boxValue.val;
+
+				cell1.innerHTML = '<select id = "selectBox0" onchange = "Swagger(this, this.id)">';
+				cell2.innerHTML = "<p id = 'lable0'>";
 				cell3.innerHTML = "[Change]";
 				cell4.innerHTML = '<input type = "button" value = "X" onclick = "deleteRow(this)">';
 
 				AppendOptions1(selectBox0,y,Index);
 				//Puting the function here will bypass the "onclick" event
-				
+				var tempyee= document.getElementById("lable0")
+				tempyee.innerHTML = boxValue.val;
 				var newId = "selectBox" + y ;
+				var newId2 = "lable"  + y
 				//This will be the Id for the selectBox in row
 				document.getElementById("selectBox0").id = newId;
+				document.getElementById("lable0").id = newId2;
+
 				//Give select box a new id
 				arrayExe[y] = false;
 		}
@@ -89,4 +93,17 @@ function deleteRow(r) {
     document.getElementById("table1").deleteRow(i);
 	x--;
 	//for "x", please see above
+}
+function Swagger (me,d2){
+		for ( var k = 0; k<array.length ; k ++){
+	if ( me.options[ me.selectedIndex ].value == array[k] &&  me.options[ me.selectedIndex ].value != "Fundamentals"){
+		 boxValue = fundata[k].val
+		break
+	}
+}
+var myString = d2;
+var stringLength = myString.length; // this will be 16
+var lastChar = myString.charAt(stringLength - 1); // this will be the string "."
+//'alert(boxValue)
+document.getElementById("lable" + lastChar).innerHTML= boxValue
 }
