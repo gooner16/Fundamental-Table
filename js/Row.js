@@ -12,10 +12,8 @@ function AddRowFunction(){
 	Name =$ ('#autocomplete')[0].value;
 	var yourSelect = document.getElementById( "selectBox" );
 	
-	if (Name == "" || Name == "Stock Name" ) {
-		document.getElementById("alertStock").innerHTML = "Please enter a stock ticker.".bold();
-	}
-	else {
+	if (!(Name == "" || Name == "Stock Name" ))
+	{
 		document.getElementById("alertStock").innerHTML = "";
 
 		var option = document.createElement("option");
@@ -62,6 +60,9 @@ function AddRowFunction(){
 				arrayExe[y] = false;
 		}
 	}
+	else {
+		document.getElementById("alertStock").innerHTML = "Please enter a stock ticker.".bold();
+	}
 	yourSelect.selectedIndex = 0;
 }
 
@@ -89,11 +90,12 @@ function AppendOptions1(me,num,ind){
 }
 
 function deleteRow(r) {
-    var i = r.parentNode.parentNode.rowIndex;
-    document.getElementById("table1").deleteRow(i);
+	var i = r.parentNode.parentNode.rowIndex;
+	document.getElementById("table1").deleteRow(i);
 	x--;
 	//for "x", please see above
 }
+
 function Swagger (me,d2){
 		for ( var k = 0; k<array.length ; k ++){
 	if ( me.options[ me.selectedIndex ].value == array[k] &&  me.options[ me.selectedIndex ].value != "Fundamentals"){
@@ -106,4 +108,5 @@ var stringLength = myString.length; // this will be 16
 var lastChar = myString.charAt(stringLength - 1); // this will be the string "."
 //'alert(boxValue)
 document.getElementById("lable" + lastChar).innerHTML= boxValue
+
 }
