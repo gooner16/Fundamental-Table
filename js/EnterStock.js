@@ -27,7 +27,7 @@ window.onload = function() {
 			input.focus();
 
 			input.onkeypress = function(event) {
-				if(input.value.length !== 0 && event.keyCode == 13) {
+				if (input.value.length !== 0 && event.keyCode == 13) {
 					console.log('Enter was pressed');
 					input.style.display = "none";
 					console.log('User entered: ', input.value);
@@ -41,8 +41,20 @@ window.onload = function() {
 
 					deleteRowAll()
 					//The function is in "row.js"
-				}
-			}
-		}
-	}
-}
+				};
+				/*else if (input.value.length == 0 && event.keyCode == 13) {
+					// Reset Span
+					span.innerHTML = "Stock Name";
+					inputStock = "";
+
+					// Show the span again
+					span.style.display = "";
+
+					deleteRowAll()
+					//The function is in "row.js"
+				};*/
+
+			};
+		};
+	};
+};
