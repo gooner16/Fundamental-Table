@@ -12,10 +12,8 @@ function AddRowFunction(){
 	Name =$ ('#autocomplete')[0].value;
 	var yourSelect = document.getElementById( "selectBox" );
 	
-	if (Name == "" || Name == "Stock Name" ) {
-		document.getElementById("alertStock").innerHTML = "Please enter a stock ticker.".bold();
-	}
-	else {
+	if (!(Name == "" || Name == "Stock Name" ))
+	{
 		document.getElementById("alertStock").innerHTML = "";
 
 		var option = document.createElement("option");
@@ -58,6 +56,9 @@ function AddRowFunction(){
 				arrayExe[y] = false;
 		}
 	}
+	else {
+		document.getElementById("alertStock").innerHTML = "Please enter a stock ticker.".bold();
+	}
 	yourSelect.selectedIndex = 0;
 }
 
@@ -85,8 +86,16 @@ function AppendOptions1(me,num,ind){
 }
 
 function deleteRow(r) {
-    var i = r.parentNode.parentNode.rowIndex;
-    document.getElementById("table1").deleteRow(i);
+	var i = r.parentNode.parentNode.rowIndex;
+	document.getElementById("table1").deleteRow(i);
 	x--;
 	//for "x", please see above
+}
+
+function deleteRowAll() {
+	for (var i = 0; i < x; i++) {
+		document.getElementById("table1").deleteRow(2);
+	};
+
+	x = 0;
 }
