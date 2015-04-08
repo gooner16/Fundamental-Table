@@ -1,40 +1,23 @@
-var x = 0
-var y = 0
-var arrayExe = [true]
+var x = 0;
+var y = 0;
+var arrayExe = [true];
 
 var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base","Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
 //"EPS Diluted","Operating Cash Flow",
 //Number of times either of the functions has been executed
 
-function AppendOptions1(me,num,ind){
-	if (!(arrayExe[num])) {
-		
-		var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base",/*"EPS Diluted",*/"Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Cash Flow",/*"Operating Income",*/"Revenue","Short Term Debt","Total Operating Expense"];
-
-		//Create array of options to be added
-		for (var i = 0; i < array.length; i++) {
-			var option = document.createElement("option");
-			option.value = array[i];
-			option.text = array[i];
-			me.appendChild(option);
-			//Create and append the options
-		}//Add options to select list using arrays
-		arrayExe[num] = true;
-	}
-	me.selectedIndex = ind - 1
-	//This would give you selected option to become the one actually being selected, and it bypass the bug.
-
-}
 
 function AddRowFunction(){
 
-	Name = $('#autocomplete')[0].value
+	Name =$ ('#autocomplete')[0].value;
+	var yourSelect = document.getElementById( "selectBox" );
 	
 	if (Name == "" || Name == "Stock Name" ) {
-		document.getElementById("alertStock").innerHTML = "Please enter a stock ticker."
+		document.getElementById("alertStock").innerHTML = "Please enter a stock ticker.".bold();
 	}
 	else {
-		var yourSelect = document.getElementById( "selectBox" );
+		document.getElementById("alertStock").innerHTML = "";
+
 		var option = document.createElement("option");
 			option.value = yourSelect.options[ yourSelect.selectedIndex ].value;
 			option.text = yourSelect.options[ yourSelect.selectedIndex ].value;
@@ -48,14 +31,15 @@ function AddRowFunction(){
 			var cell2 = row.insertCell(1);
 			var cell3 = row.insertCell(2);
 			var cell4 = row.insertCell(3);
-			x++ //Next row will be added below this one
-			y++ //This is used to assign a different string to every selectBox
+			
+			x++; //Next row will be added below this one
+			y++; //This is used to assign a different string to every selectBox
 			
 			var boxValue
 			for ( var k = 0; k<array.length ; k ++) {
 				if ( yourSelect.options[ yourSelect.selectedIndex ].value == array[k] && option.value != "Fundamentals") {
-				boxValue = fundata[k]
-				break
+				boxValue = fundata[k];
+				break;
 				}
 			}
 		
@@ -64,7 +48,7 @@ function AddRowFunction(){
 				cell3.innerHTML = "[Change]";
 				cell4.innerHTML = '<input type = "button" value = "X" onclick = "deleteRow(this)">';
 
-				AppendOptions1(selectBox0,y,Index)
+				AppendOptions1(selectBox0,y,Index);
 				//Puting the function here will bypass the "onclick" event
 				
 				var newId = "selectBox" + y ;
@@ -74,11 +58,31 @@ function AddRowFunction(){
 				arrayExe[y] = false;
 		}
 	}
-	
+	yourSelect.selectedIndex = 0;
 }
 
-var executed0 = false
-//Variable only for this function
+
+function AppendOptions1(me,num,ind){
+	if (!(arrayExe[num])) {
+		//me.remove(0);
+		//Remove first option of selectbox
+
+		var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base",/*"EPS Diluted",*/"Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees",/*"Operating Cash Flow",*/"Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
+
+		//Create array of options to be added
+		for (var i = 0; i < array.length; i++) {
+			var option = document.createElement("option");
+			option.value = array[i];
+			option.text = array[i];
+			me.appendChild(option);
+			//Create and append the options
+		}//Add options to select list using arrays
+		arrayExe[num] = true;
+	}
+	me.selectedIndex = ind - 1;
+	//This would give you selected option to become the one actually being selected, and it bypass the bug.
+
+}
 
 function deleteRow(r) {
     var i = r.parentNode.parentNode.rowIndex;
