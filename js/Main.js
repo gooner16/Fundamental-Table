@@ -1,5 +1,4 @@
 'use strict'; //"operatingcashflow","espdiluted",
- 
  var fundamentalOptions = ['assets', 'bookvalue' ,"capitalexpenditures" ,"cash","costofgoodssold","dps",'epsbase', "floatshares","goodwill","incomeaftertax",'incomebeforetax', "institutionalown", "inventory","liability","longtermdebt",'netincome' , "numofemployees" ,"operatingincome","revenue","shorttermdebt","totaloperatingexpense"]
  var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base","Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
 
@@ -18,20 +17,17 @@ Runner.loadData = function loadData(AppData, stockId){
 		
 		(function(i){
 			var tempfund = fundamentalOptions[i];
-			
-			//Data unit converter
 			var tempName = array[i]
 			AppData.v1.fundamental.GET(stockId,tempfund)
 			.then(function(data){
 	 		var ek = data.response.data[0][1]
 
 			 	if ( ek / 1000000000 > 1){
-			ek =  ek/ 1000000000 + " B"
+			ek =  ek/ 1000000000 + " billion"
 
 			}else if( ek / 1000000 >1 && ek / 1000000000 < 1){
-			ek = ek / 1000000 + " M"
+			ek = ek / 1000000 + " million"
 			}
-			
 			var curr = {
 				'label': tempName,
 				'val': ek //data.response.data[0][1]
@@ -95,7 +91,7 @@ StockRender.AppRender.register({
 		$('#autocomplete').keypress(function(e){
 			if( e.which === 13 ) {
 				fundata = new Array();
-				Runner.loadData(AppData, $('#autocomplete')[0].value);
+				Runner.loadData(AppData, $('#autocomplete')[0].value.toUpperCase());
 				return;
 			}
 		})

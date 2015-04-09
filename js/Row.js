@@ -34,8 +34,8 @@ function AddRowFunction(){
 			y++; //This is used to assign a different string to every selectBox
 			
 			var boxValue
-			for ( var k = 0; k<array.length ; k ++) {
-				if (option.value == array[k] && option.value != "Fundamentals") {
+			for ( var k = 0; k<fundata.length ; k ++) {
+				if ( /*yourSelect.options[ yourSelect.selectedIndex ].value*/ option.value == fundata[k].label && option.value != "Fundamentals") {
 				boxValue = fundata[k];
 				break;
 				}
@@ -88,7 +88,6 @@ function AppendOptions1(me,num,ind){
 	//This would give you selected option to become the one actually being selected, and it bypass the bug.
 
 }
-
 //deletes current row
 function deleteRow(r) {
 	var i = r.parentNode.parentNode.rowIndex;
@@ -96,26 +95,27 @@ function deleteRow(r) {
 	x--;
 	//for "x", please see above
 }
-
 //clears all added rows
 function deleteRowAll() {
 	for (var i = 0; i < x; i++) {
 		document.getElementById("table1").deleteRow(2);
-	}
+	};
+
 	x = 0;
 }
 
 function Swagger (me,d2){
-		for ( var k = 0; k<array.length ; k ++){
-			if ( me.options[ me.selectedIndex ].value == array[k] &&  me.options[ me.selectedIndex ].value != "Fundamentals"){
-			boxValue = fundata[k].val
-			break
+	var boxValue
+		for ( var k = 0; k<fundata.length ; k ++) {
+			if ( me.options[ me.selectedIndex ].value == fundata[k].label && me.options[ me.selectedIndex ].value  != "Fundamentals") {
+			boxValue = fundata[k].val;
+			break;
 			}
 		}
+var myString = d2;
+var stringLength = myString.length; // this will be 16
+var lastChar = myString.charAt(stringLength - 1); // this will be the string "."
+//'alert(boxValue)
+document.getElementById("lable" + lastChar).innerHTML= boxValue
 
-	var myString = d2;
-	var stringLength = myString.length; // this will be 16
-	var lastChar = myString.charAt(stringLength - 1); // this will be the string "."
-	
-	document.getElementById("lable" + lastChar).innerHTML= boxValue
 }
