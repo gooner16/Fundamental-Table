@@ -28,6 +28,7 @@ window.onload = function() {
 
 			input.onkeypress = function(event) {
 				if (input.value.length !== 0 && event.keyCode == 13) {
+					deleteRowAll();
 					console.log('Enter was pressed');
 					input.style.display = "none";
 					console.log('User entered: ', input.value);

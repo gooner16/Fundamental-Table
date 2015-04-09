@@ -7,5 +7,7 @@
 .table1 tr:nth-child(odd){background: #FFFFFF;}
 /*  Define the background color for all the EVEN background rows  */
 .table1 tr:nth-child(even){background: #A8C6FA;}
+/*Remove unnecessary border */
+.table1 td.noLeft {border-left:0;}
 
 select {width:100%;}
