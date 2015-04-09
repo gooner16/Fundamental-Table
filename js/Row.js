@@ -35,7 +35,7 @@ function AddRowFunction(){
 			
 			var boxValue
 			for ( var k = 0; k<array.length ; k ++) {
-				if ( yourSelect.options[ yourSelect.selectedIndex ].value == array[k] && option.value != "Fundamentals") {
+				if (option.value == array[k] && option.value != "Fundamentals") {
 				boxValue = fundata[k];
 				break;
 				}
@@ -106,15 +106,15 @@ function deleteRowAll() {
 
 function Swagger (me,d2){
 		for ( var k = 0; k<array.length ; k ++){
-	if ( me.options[ me.selectedIndex ].value == array[k] &&  me.options[ me.selectedIndex ].value != "Fundamentals"){
-		 boxValue = fundata[k].val
-		break
-	}
-}
-var myString = d2;
-var stringLength = myString.length; // this will be 16
-var lastChar = myString.charAt(stringLength - 1); // this will be the string "."
-//'alert(boxValue)
-document.getElementById("lable" + lastChar).innerHTML= boxValue
+			if ( me.options[ me.selectedIndex ].value == array[k] &&  me.options[ me.selectedIndex ].value != "Fundamentals"){
+			boxValue = fundata[k].val
+			break
+			}
+		}
 
+	var myString = d2;
+	var stringLength = myString.length; // this will be 16
+	var lastChar = myString.charAt(stringLength - 1); // this will be the string "."
+	
+	document.getElementById("lable" + lastChar).innerHTML= boxValue
 }
