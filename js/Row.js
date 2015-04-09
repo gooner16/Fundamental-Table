@@ -34,8 +34,8 @@ function AddRowFunction(){
 			y++; //This is used to assign a different string to every selectBox
 			
 			var boxValue
-			for ( var k = 0; k<fundata.length ; k ++) {
-				if ( /*yourSelect.options[ yourSelect.selectedIndex ].value*/ option.value == fundata[k].label && option.value != "Fundamentals") {
+			for ( var k = 0; k<array.length ; k ++) {
+				if ( yourSelect.options[ yourSelect.selectedIndex ].value == array[k] && option.value != "Fundamentals") {
 				boxValue = fundata[k];
 				break;
 				}
@@ -105,13 +105,12 @@ function deleteRowAll() {
 }
 
 function Swagger (me,d2){
-	var boxValue
-		for ( var k = 0; k<fundata.length ; k ++) {
-			if ( /*yourSelect.options[ yourSelect.selectedIndex ].value*/ option.value == fundata[k].label && option.value != "Fundamentals") {
-			boxValue = fundata[k].val;
-			break;
-			}
-		}
+		for ( var k = 0; k<array.length ; k ++){
+	if ( me.options[ me.selectedIndex ].value == array[k] &&  me.options[ me.selectedIndex ].value != "Fundamentals"){
+		 boxValue = fundata[k].val
+		break
+	}
+}
 var myString = d2;
 var stringLength = myString.length; // this will be 16
 var lastChar = myString.charAt(stringLength - 1); // this will be the string "."
