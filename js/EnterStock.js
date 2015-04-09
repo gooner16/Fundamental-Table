@@ -9,7 +9,7 @@ window.onload = function() {
 		// Get the root element of the event (handle MS difference)
 		span = event.target || event.srcElement;
 		input = document.getElementById("autocomplete");
-
+		
 		// If it's a span...
 		if (span && span.tagName.toUpperCase() === "SPAN") {
 			// Hide it
@@ -28,10 +28,10 @@ window.onload = function() {
 
 			input.onkeypress = function(event) {
 				if (input.value.length !== 0 && event.keyCode == 13) {
-					
 					console.log('Enter was pressed');
-					input.style.display = "none";
 					console.log('User entered: ', input.value);
+
+					input.style.display = "none";
 					
 					// Update the span
 					span.innerHTML = input.value.toUpperCase();
@@ -43,17 +43,19 @@ window.onload = function() {
 					deleteRowAll();
 					//The function is in "row.js"
 				};
-				/*else if (input.value.length == 0 && event.keyCode == 13) {
+				if (input.value.length == 0 && event.keyCode == 13) {
+					input.style.display = "none";
+
 					// Reset Span
 					span.innerHTML = "Stock Name";
-					inputStock = "";
+					inputStock = "Stock Name";
 
 					// Show the span again
 					span.style.display = "";
 
 					deleteRowAll()
 					//The function is in "row.js"
-				};*/
+				};
 
 			};
 		};

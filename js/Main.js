@@ -22,11 +22,12 @@ Runner.loadData = function loadData(AppData, stockId){
 			.then(function(data){
 	 		var ek = data.response.data[0][1]
 
-			 	if ( ek / 1000000000 > 1){
-			ek =  ek/ 1000000000 + " billion"
+			if ( ek / 1000000000 > 1){
+			ek =  (ek / 1000000000).toFixed(2) + " bn"
+			}
 
-			}else if( ek / 1000000 >1 && ek / 1000000000 < 1){
-			ek = ek / 1000000 + " million"
+			else if( ek / 1000000 >1 && ek / 1000000000 < 1){
+			ek = (ek / 1000000).toFixed(2) + " M"
 			}
 			var curr = {
 				'label': tempName,
