@@ -88,6 +88,7 @@ function AppendOptions1(me,num,ind){
 	//This would give you selected option to become the one actually being selected, and it bypass the bug.
 
 }
+
 //deletes current row
 function deleteRow(r) {
 	var i = r.parentNode.parentNode.rowIndex;
@@ -95,12 +96,12 @@ function deleteRow(r) {
 	x--;
 	//for "x", please see above
 }
+
 //clears all added rows
 function deleteRowAll() {
 	for (var i = 0; i < x; i++) {
 		document.getElementById("table1").deleteRow(2);
-	};
-
+	}
 	x = 0;
 }
 
