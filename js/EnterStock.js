@@ -42,6 +42,8 @@ window.onload = function() {
 
 					deleteRowAll();
 					//The function is in "row.js"
+
+					document.getElementById("alertStock").innerHTML = "";
 				};
 				if (input.value.length == 0 && event.keyCode == 13) {
 					input.style.display = "none";
