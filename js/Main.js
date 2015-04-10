@@ -1,6 +1,7 @@
 'use strict'; //"operatingcashflow","espdiluted",
  var fundamentalOptions = ['assets', 'bookvalue' ,"capitalexpenditures" ,"cash","costofgoodssold","dps",'epsbase', "floatshares","goodwill","incomeaftertax",'incomebeforetax', "institutionalown", "inventory","liability","longtermdebt",'netincome' , "numofemployees" ,"operatingincome","revenue","shorttermdebt","totaloperatingexpense"]
  var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base","Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
+var validTicker = 0
 
  var fundata = new Array()
  function Runner () {}																											
@@ -34,8 +35,6 @@ Runner.loadData = function loadData(AppData, stockId){
 				'val': ek //data.response.data[0][1]
 			}
 			
-			//console.log(curr)
-			//fundata.push(data.response.data[0][1])
 			fundata.push(curr);
 			console.log(fundata)
 			

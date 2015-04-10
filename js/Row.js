@@ -12,7 +12,7 @@ function AddRowFunction(){
 	Name =$ ('#autocomplete')[0].value;
 	var yourSelect = document.getElementById( "selectBox" );
 	
-	if (!(Name == "" || Name == "Stock Name" )) {
+	if (validTicker == 1) {
 		var option = document.createElement("option");
 			option.value = yourSelect.options[ yourSelect.selectedIndex ].value;
 			option.text = yourSelect.options[ yourSelect.selectedIndex ].value;
@@ -57,9 +57,8 @@ function AddRowFunction(){
 				//Give select box a new id
 				arrayExe[y] = false;
 		}
-	}
-	else {
-		document.getElementById("alertStock").innerHTML = "Please enter a stock ticker.".bold();
+	} else {
+		document.getElementById("alertStock").innerHTML = "Please enter a stock ticker.";
 	}
 	yourSelect.selectedIndex = 0;
 }

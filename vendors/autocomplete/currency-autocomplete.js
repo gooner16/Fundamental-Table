@@ -3,7 +3,7 @@ var response = [
 var lengthOfResponse= response.length
 
 var tickers= new Array()
-for(i=0;i< lengthOfResponse;i++){
+for (i=0; i< lengthOfResponse; i++) {
 
         tickers[i]= response[i].Ticker
 }
