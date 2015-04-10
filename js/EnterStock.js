@@ -27,38 +27,44 @@ window.onload = function() {
 			input.focus();
 
 			input.onkeypress = function(event) {
-				if (input.value.length !== 0 && event.keyCode == 13) {
-					console.log('Enter was pressed');
-					console.log('User entered: ', input.value);
+				
+				if (event.keyCode == 13) {
 
-					input.style.display = "none";
-					
-					// Update the span
-					span.innerHTML = input.value.toUpperCase();
-					inputStock = input.value.toUpperCase();
-					
-					// Show the span again
-					span.style.display = "";
+					if (input.value.length !== 0) {
+						console.log('Enter was pressed');
+						console.log('User entered: ', input.value);
 
-					deleteRowAll();
-					//The function is in "row.js"
+						input.style.display = "none";
+						
+						// Update the span
+						span.innerHTML = input.value.toUpperCase();
+						inputStock = input.value.toUpperCase();
+						
+						// Show the span again
+						span.style.display = "";
 
-					document.getElementById("alertStock").innerHTML = "";
-				};
-				if (input.value.length == 0 && event.keyCode == 13) {
-					input.style.display = "none";
+						deleteRowAll();
+						//The function is in "row.js"
 
-					// Reset Span
-					span.innerHTML = "Stock Name";
-					inputStock = "Stock Name";
+						document.getElementById("alertStock").innerHTML = "";
+					}
 
-					// Show the span again
-					span.style.display = "";
+					if (input.value.length == 0) {
+						input.style.display = "none";
 
-					deleteRowAll()
-					//The function is in "Row.js"
-				};
-			};
-		};
-	};
-};
+						// Reset Span
+						span.innerHTML = "Stock Name";
+						inputStock = "Stock Name";
+
+						// Show the span again
+						span.style.display = "";
+
+						deleteRowAll();
+						//The function is in "row.js"
+					}
+				}
+			}
+		}
+	}
+}
+

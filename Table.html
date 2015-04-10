@@ -7,8 +7,8 @@
 	<script type = "text/javascript" src = "vendors/stockrender-apprender.1.0.0.min.js"> </script>
 	
 	<!-- Vendors script -->
-	<script type = "text/javascript" src = "vendors/autocomplete/js/jquery.autocomplete.min.js"></script>
-	<script type = "text/javascript" src = "vendors/autocomplete/js/currency-autocomplete.js"></script>
+	<script type = "text/javascript" src = "vendors/autocomplete/jquery.autocomplete.min.js"></script>
+	<script type = "text/javascript" src = "vendors/autocomplete/currency-autocomplete.js"></script>
 	
 	<!-- Supplementary scripts -->
 	<!-- JS  -->
@@ -24,11 +24,11 @@
 
 <body style = "width: 900px">
 
-	<table id = "table1" class = "table1" cellspacing = "0" border = "1px" cellpadding = "9" style = "margin-left: 350px; width: 500px;">
-		<col width = "150px">
-		<col width = "100px">
-		<col width = "205px"> 
-		<col width = "45px">
+	<table id = "table1" class = "table1" cellspacing = "0" border = "1px" cellpadding = "4" style = "margin-left: 350px; width: 500px;">
+		<col width = "200px">
+		<col width = "120px">
+		<col width = "150px"> 
+		<col width = "30px">
 
 	<tr>
 		<div id = "outputbox">
@@ -40,8 +40,7 @@
 	<tr>
 		<td> Fundamental </td>
 		<td> Value </td>
-		<td> % Change Since Last Quarter </td>
-		<td class = "noLeft"> </td>
+		<td colspan = "2"> % Change Since Last Quarter </td>	
 	</tr>
 
 	<tr> <!-- Add select object to row-->
@@ -79,7 +78,7 @@
 	</table>
 
 	<div style="margin-left: 350px">
-		<p id = "alertStock"><b></b></p>
+		<p1 id = "alertStock"><b></b></p>
 	</div>
 
 <script type="text/javascript">
