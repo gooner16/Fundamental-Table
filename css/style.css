@@ -12,7 +12,19 @@
 
 select {width:100%;}
 
-p {
+select option{
 	font-family: "Arial";
-	font-size: 15px;
+	font-size: 14px;
+}
+
+.table1 tr {
+	font-family: "Arial";
+	font-size: 14px;
+	color: blue;
+
+}
+
+p1 {
+	font-family: "Arial";
+	font-size: 20px;
  }
