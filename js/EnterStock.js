@@ -56,9 +56,8 @@ window.onload = function() {
 					span.style.display = "";
 
 					deleteRowAll()
-					//The function is in "row.js"
+					//The function is in "Row.js"
 				};
-
 			};
 		};
 	};

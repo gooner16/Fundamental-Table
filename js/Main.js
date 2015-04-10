@@ -92,8 +92,13 @@ StockRender.AppRender.register({
 		$('#autocomplete').keypress(function(e){
 			if( e.which === 13 ) {
 				fundata = new Array();
-				Runner.loadData(AppData, $('#autocomplete')[0].value.toUpperCase());
-				return;
+				//Will only search when a ticker is entered
+				if ($('#autocomplete')[0].value.toUpperCase() == "") {
+					document.getElementById("alertStock").innerHTML = "Please enter a stock ticker.".bold();
+				}else{
+					Runner.loadData(AppData, $('#autocomplete')[0].value.toUpperCase());
+					return;
+				};	
 			}
 		})
 	}
