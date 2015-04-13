@@ -1,7 +1,7 @@
 'use strict'; //"operatingcashflow","espdiluted",
  var fundamentalOptions = ['assets', 'bookvalue' ,"capitalexpenditures" ,"cash","costofgoodssold","dps",'epsbase', "floatshares","goodwill","incomeaftertax",'incomebeforetax', "institutionalown", "inventory","liability","longtermdebt",'netincome' , "numofemployees" ,"operatingincome","revenue","shorttermdebt","totaloperatingexpense"]
  var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base","Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
-var validTicker = 0
+var validTicker = 1
 
  var fundata = new Array()
  function Runner () {}																											
@@ -92,8 +92,8 @@ StockRender.AppRender.register({
 			if( e.which === 13 ) {
 				fundata = new Array();
 				//Will only search when a ticker is entered
-				if ($('#autocomplete')[0].value.toUpperCase() == "") {
-					document.getElementById("alertStock").innerHTML = "Please enter a stock ticker.".bold();
+				if (validTicker === 1) {
+					document.getElementById("alertStock").innerHTML = "Please enter a stock ticker.";
 				}else{
 					Runner.loadData(AppData, $('#autocomplete')[0].value.toUpperCase());
 					return;
