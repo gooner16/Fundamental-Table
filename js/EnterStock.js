@@ -1,8 +1,8 @@
 //'use strict';
-
+var span, input, text;
 window.onload = function() {
 	document.getElementById('enterStock').onclick = function(event) {
-		var span, input, text;
+		
 		
 		// Get the event (handle MS difference)
 		event = event || window.event;
@@ -30,9 +30,6 @@ window.onload = function() {
 			input.onkeypress = function(event) {
 				
 				if (event.keyCode == 13) {
-					
-					validTicker = determineTicker(input.value.toUpperCase());
-					console.log(validTicker)
 
 					// If input is empty
 					if (validTicker == 0) {
@@ -78,7 +75,7 @@ window.onload = function() {
 						deleteRowAll();
 						//The function is in "row.js"
 
-						document.getElementById("alertStock").innerHTML = "Please enter a valid stock ticker.";
+						//document.getElementById("alertStock").innerHTML = "Please enter a valid stock ticker.";
 						//This shows up when it's empty or invalid stock ticker
 					}
 				}
