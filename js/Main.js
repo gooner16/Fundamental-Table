@@ -94,8 +94,13 @@ StockRender.AppRender.register({
 				validTicker = determineTicker(input.value.toUpperCase());
 				console.log(validTicker)
 				//Will only search when a ticker is entered
+<<<<<<< HEAD
 				if (validTicker == 0 || validTicker == 2) {
 					document.getElementById("alertStock").innerHTML = "Please enter a stock ticker.".bold();
+=======
+				if (validTicker === 1) {
+					document.getElementById("alertStock").innerHTML = "Please enter a stock ticker.";
+>>>>>>> origin/master
 				}else{
 					Runner.loadData(AppData, $('#autocomplete')[0].value.toUpperCase());
 					return;

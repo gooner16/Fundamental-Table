@@ -1,8 +1,9 @@
 //'use strict';
 var span, input, text;
+
 window.onload = function() {
+	
 	document.getElementById('enterStock').onclick = function(event) {
-		
 		
 		// Get the event (handle MS difference)
 		event = event || window.event;
@@ -28,7 +29,9 @@ window.onload = function() {
 			input.focus();
 
 			input.onkeypress = function(event) {
-				
+
+				validTicker == 2
+
 				if (event.keyCode == 13) {
 
 					// If input is empty
