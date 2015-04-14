@@ -1,7 +1,7 @@
 'use strict'; //"operatingcashflow","espdiluted",
  var fundamentalOptions = ['assets', 'bookvalue' ,"capitalexpenditures" ,"cash","costofgoodssold","dps",'epsbase', "floatshares","goodwill","incomeaftertax",'incomebeforetax', "institutionalown", "inventory","liability","longtermdebt",'netincome' , "numofemployees" ,"operatingincome","revenue","shorttermdebt","totaloperatingexpense"]
  var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base","Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
- var validTicker = 0
+var validTicker = 0
 
  var fundata = new Array()
  function Runner () {}																											
@@ -36,7 +36,6 @@ Runner.loadData = function loadData(AppData, stockId){
 			}
 			
 			fundata.push(curr);
-			console.log(fundata)
 			
 			}, function(jqXHR){
 				throw new Error('Failed to load data!',jqXHR);
@@ -48,6 +47,8 @@ Runner.loadData = function loadData(AppData, stockId){
 			});
 		})(i);
 	}
+	console.log(fundata)
+	//Show list of fundamental after the array's loaded
 };
 StockRender.AppRender.register({
 	id: "49e90eee6ce1942a94136fc8db19319c",
@@ -90,15 +91,15 @@ StockRender.AppRender.register({
 		
 		$('#autocomplete').keypress(function(e){
 			if( e.which === 13 ) {
-				fundata = new Array();
+				//Local variable "input"
+				var input = document.getElementById("autocomplete");
+
+				//Call function again -- function in EnterStock.js
 				validTicker = determineTicker(input.value.toUpperCase());
 				console.log(validTicker)
-				//Will only search when a ticker is entered
 
-				if (validTicker == 0 || validTicker == 2) {
-					document.getElementById("alertStock").innerHTML = "Please enter a stock ticker.";
-				}else{
-					Runner.loadData(AppData, $('#autocomplete')[0].value.toUpperCase());
+				if (validTicker == 1) {
+					Runner.loadData(AppData, input.value.toUpperCase());
 					return;
 				};	
 			}
