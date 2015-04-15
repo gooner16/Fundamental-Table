@@ -32,7 +32,6 @@ window.onload = function() {
 				if (event.keyCode == 13) {
 					
 					validTicker = determineTicker(input.value.toUpperCase());
-					console.log(validTicker)
 
 					// If input is empty
 					if (validTicker == 0) {
