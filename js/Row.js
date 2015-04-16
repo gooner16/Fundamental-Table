@@ -1,4 +1,4 @@
-var x = 0;
+var x1 = 0;
 var y = 0;
 var arrayExe = [true];
 
@@ -74,13 +74,13 @@ function AddRowFunction(){
 
 
 			var table = document.getElementById("table1");
-			var row = table.insertRow(2+x);
+			var row = table.insertRow(2+x1);
 			var cell1 = row.insertCell(0);
 			var cell2 = row.insertCell(1);
 			var cell3 = row.insertCell(2);
 			var cell4 = row.insertCell(3);
 			
-			x++; //Next row will be added below this one
+			x1++; //Next row will be added below this one
 			y++; //This is used to assign a different string to every selectBox
 			
 			var boxValue
@@ -137,17 +137,17 @@ function AppendOptions1(me,num,ind){
 function deleteRow(r) {
 	var i = r.parentNode.parentNode.rowIndex;
 	document.getElementById("table1").deleteRow(i);
-	x--;
+	x1--;
 	//for "x", please see above
 }
 
 //clears all added rows
 function deleteRowAll() {
-	for (var i = 0; i < x; i++) {
+	for (var i = 0; i < x1; i++) {
 		document.getElementById("table1").deleteRow(2);
 	};
 
-	x = 0;
+	x1 = 0;
 }
 
 function Swagger (me,d2){

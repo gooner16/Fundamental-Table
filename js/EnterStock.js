@@ -56,6 +56,7 @@ window.onload = function() {
 						// Update the span
 						span.innerHTML = input.value.toUpperCase();
 						inputStock = input.value.toUpperCase();
+						console.log(inputStock)
 						
 						// Show the span again
 						span.style.display = "";
