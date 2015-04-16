@@ -15,7 +15,10 @@
 	<script type = "text/javascript" src = "js/Main.js"></script> <!-- Pulls data into array -->
 	<script type = "text/javascript" src = "js/Row.js"></script><!-- Table row manipulation, including add rows, remove rows, and append options to select -->
 	<script type = "text/javascript" src = "js/EnterStock.js"></script><!-- Handles input -->
-	<script type = "text/javascript" src = "js/Settings.js"></script><!-- Settings panel -->
+	<!-- jquery -->
+    <script src="vendors/jquery-2.1.3.min.js"></script>
+    <script src="vendors/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+  	<script src="jscolor-1.4.4/jscolor/jscolor.js"></script>
 
 	<!-- CSS -->
 	<link rel = "stylesheet" type = "text/css" media = "all" href = "css/style.css">
@@ -24,6 +27,26 @@
 </head>
 
 <body style = "width: 900px">
+
+<!-- Settings -->
+<div id="settings" title="Settings">
+    <script>  $("#settings").hide(); </script>
+
+      <label id = "lblText">Text Size: </label>
+      <label id = "lblColor">Color Scheme: </label>
+      <label id = "lblTextColor">Text Color: </label>
+      <input id = "btnTextColor" class="color" value="000000"></input>
+      <input id = "inpColorScheme1" class="color" value="A8C6FA"></input>
+      <input id = "inpColorScheme2" class="color" value="FFFFFF"></input>
+
+
+      <input id = "inpText" type="number" min="12" max="20" step="1" value="16">
+
+      
+ </div>
+ 
+  <button id="opener">Settings</button>
+<!-- Settings -->
 
 	<table id = "table1" class = "table1" cellspacing = "0" border = "1px" cellpadding = "4" style = "margin-left: 350px; width: 500px;">
 		<col width = "200px">

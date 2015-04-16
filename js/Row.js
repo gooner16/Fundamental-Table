@@ -9,6 +9,57 @@ var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good S
 
 function AddRowFunction(){
 
+		///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
+		var newTextSize = document.getElementById('inpText').value;
+        var changeSize = '16px';
+
+         if(newTextSize == 12){
+          changeSize = '12px';
+        }
+        if(newTextSize == 13){
+          changeSize = '13px';
+        }
+        if(newTextSize == 14){
+          changeSize = '14px';
+        }
+        if(newTextSize == 15){
+          changeSize = '15px';
+        }
+        if(newTextSize == 16){
+          changeSize = '16px';
+        }
+        if(newTextSize == 17){
+          changeSize = '17px';
+        }
+        if(newTextSize == 18){
+          changeSize = '18px';
+        }
+        if(newTextSize == 19){
+          changeSize = '19px';
+        }
+        if(newTextSize == 20){
+          changeSize = '20px';
+        }
+
+        var emLength = document.getElementsByTagName('tr').length;
+            for(var x = 0; x < emLength; x++){
+                document.getElementsByTagName('tr')[x].style.fontSize = changeSize;
+              }
+              //this changes the color of the newly added rows
+        var txtcolor = document.getElementById('inpColorScheme1').value;
+    	txtcolor = '#' + txtcolor;
+    	var rowLength = document.getElementById('table1').rows.length;
+    		for(var x = 2; x < rowLength; x += 2){
+      		document.getElementById('table1').rows[x].style.background = txtcolor;
+    	}
+    	txtcolor = document.getElementById('inpColorScheme2').value;
+    	txtcolor = '#' + txtcolor;
+    		for(var x = 1; x < rowLength; x += 2){
+     		document.getElementById('table1').rows[x].style.background = txtcolor;
+    	}
+
+    	///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
+
 	Name =$ ('#autocomplete')[0].value;
 	var yourSelect = document.getElementById( "selectBox" );
 	
@@ -20,6 +71,8 @@ function AddRowFunction(){
 			//the option would be the one selected on selectBox
 		
 		if (option.value != "Fundamentals") {
+
+
 			var table = document.getElementById("table1");
 			var row = table.insertRow(2+x);
 			var cell1 = row.insertCell(0);

@@ -60,7 +60,117 @@ StockRender.AppRender.register({
 				};	
 			}
 		})
+
+		///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
+
+	var isChanged;
+	var changeSize; 
+	
+	$( "#inpText" ).change(function() {
+	  var newTextSize = document.getElementById('inpText').value;
+	  console.log(newTextSize);
+	  if(newTextSize == 12){
+	  	changeSize = '12px';
+	  	isChanged = true;
+	  }
+	  if(newTextSize == 13){
+	  	changeSize = '13px';
+	  	isChanged = true;
+	  }
+	  if(newTextSize == 14){
+	  	changeSize = '14px';
+	  	isChanged = true;
+	  }
+	  if(newTextSize == 15){
+	  	changeSize = '15px';
+	  	isChanged = true;
+	  }
+	  if(newTextSize == 16){
+	  	changeSize = '16px';
+	  	isChanged = true;
+	  }
+	  if(newTextSize == 17){
+	  	changeSize = '17px';
+	  	isChanged = true;
+	  }
+	  if(newTextSize == 18){
+	  	changeSize = '18px';
+	  	isChanged = true;
+	  }
+	  if(newTextSize == 19){
+	  	changeSize = '19px';
+	  	isChanged = true;
+	  }
+	  if(newTextSize == 20){
+	  	changeSize = '20px';
+	  	isChanged = true;
+	  }
+	});
+
+	//this is the function for opening and closing the settings
+	var count = 0;
+	var click = 0;
+	var fundChanged;
+	$( "#opener" ).click(function() {
+	    count += 1;
+	    click = count % 2;
+	    console.log('click', click);
+	    if(click == 1){
+	      $("#settings").show();
+	      $("#table1").hide();
+	    } 
+	    if(click == 0) {
+	      $("#settings").hide();
+	      $("#table1").show();
+	      if(isChanged == true){
+	      console.log(changeSize);
+	      var pLength = document.getElementsByTagName('tr').length;
+	      for(var x = 0; x < pLength; x++){
+	         document.getElementsByTagName('tr')[x].style.fontSize = changeSize;
+	      }
+	      var emLength = document.getElementsByTagName('tr').length;
+	      for(var x = 0; x < emLength; x++){
+	      document.getElementsByTagName('tr')[x].style.fontSize = changeSize;
+	      }
+	  	  	isChanged = false;
+	  	  }
+	      if(fundChanged == true){
+	         var rowNum = document.getElementById("table1").rows.length; 
+	              while(rowNum > 4) 
+	              {
+	               document.getElementById("table1").deleteRow(rowNum - 2);
+	               rowNum = document.getElementById("table1").rows.length; 
+	               stockLength = 0;
+	               numAddedStocks = 0;
+	              }
+	              fundChanged = false;
+	      }
+	    }
+	});
+
+	//this function is used for the dropdown list (modify if you need it, if not delete)
+	$( "#fundimental" ).change(function() {
+	        var e = document.getElementById("fundimental");
+	        fund = e.options[e.selectedIndex].text;
+	        console.log(fund);
+	        fundChanged = true;
+				Runner.loadFundimental(AppData);
+			});
+	//functions that determine which color wheel you changed
+	$( "#inpColorScheme1" ).click(function() {
+	  Runner.colorType('scheme1');
+	});
+	$( "#inpColorScheme2" ).click(function() {
+	  Runner.colorType('scheme2');
+	});
+	$( "#btnTextColor" ).click(function() {
+	  Runner.colorType('text');
+	});
+
+
+	/////////////////////////////////////////////*Settings*//////////////////////////////////////////////
 	}
+	
 });
 
 
@@ -110,3 +220,41 @@ Runner.loadData = function loadData(AppData, stockId){
 	console.log(fundata)
 	
 };
+
+///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
+
+var colorChangeType;
+Runner.colorType = function colorType(type){
+colorChangeType = type;
+};
+//changes the color of the rows
+Runner.colorChange = function colorChange(){
+     var txtcolor;
+  if(colorChangeType == 'text'){
+    txtcolor = document.getElementById('btnTextColor').value;
+    txtcolor = '#' + txtcolor;
+     var pLength = document.getElementsByTagName('tr').length;
+      for(var x = 0; x < pLength; x++){
+         document.getElementsByTagName('tr')[x].style.color = txtcolor;
+      }
+  }
+   if(colorChangeType == 'scheme1'){
+    txtcolor = document.getElementById('inpColorScheme1').value;
+    txtcolor = '#' + txtcolor;
+    var rowLength = document.getElementById('table1').rows.length;
+    for(var x = 2; x < rowLength; x += 2){
+      document.getElementById('table1').rows[x].style.background = txtcolor;
+    }
+  }
+   if(colorChangeType == 'scheme2'){
+    txtcolor = document.getElementById('inpColorScheme2').value;
+    txtcolor = '#' + txtcolor;
+    var rowLength = document.getElementById('table1').rows.length;
+    for(var x = 1; x < rowLength; x += 2){
+      document.getElementById('table1').rows[x].style.background = txtcolor;
+    }
+
+    ///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
+
+  }     
+}
