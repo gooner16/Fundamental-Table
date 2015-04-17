@@ -113,6 +113,18 @@ function deleteRow(r) {
 	document.getElementById("table1").deleteRow(i);
 	x1--;
 	//for "x", please see above
+
+	var txtcolor = document.getElementById('inpColorScheme1').value;
+	 txtcolor = '#' + txtcolor;
+	 var rowLength = document.getElementById('table1').rows.length;
+	 for(var x = 2; x < rowLength; x += 2){
+	 document.getElementById('table1').rows[x].style.background = txtcolor;
+	 }
+	 txtcolor = document.getElementById('inpColorScheme2').value;
+	 txtcolor = '#' + txtcolor;
+	 for(var x = 1; x < rowLength; x += 2){
+	 document.getElementById('table1').rows[x].style.background = txtcolor;
+	 }
 }
 
 //clears all added rows

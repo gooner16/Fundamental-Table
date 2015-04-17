@@ -68,43 +68,9 @@ StockRender.AppRender.register({
 	
 	$( "#inpText" ).change(function() {
 	  var newTextSize = document.getElementById('inpText').value;
-	  console.log(newTextSize);
-	  if(newTextSize == 12){
-	  	changeSize = '12px';
-	  	isChanged = true;
-	  }
-	  if(newTextSize == 13){
-	  	changeSize = '13px';
-	  	isChanged = true;
-	  }
-	  if(newTextSize == 14){
-	  	changeSize = '14px';
-	  	isChanged = true;
-	  }
-	  if(newTextSize == 15){
-	  	changeSize = '15px';
-	  	isChanged = true;
-	  }
-	  if(newTextSize == 16){
-	  	changeSize = '16px';
-	  	isChanged = true;
-	  }
-	  if(newTextSize == 17){
-	  	changeSize = '17px';
-	  	isChanged = true;
-	  }
-	  if(newTextSize == 18){
-	  	changeSize = '18px';
-	  	isChanged = true;
-	  }
-	  if(newTextSize == 19){
-	  	changeSize = '19px';
-	  	isChanged = true;
-	  }
-	  if(newTextSize == 20){
-	  	changeSize = '20px';
-	  	isChanged = true;
-	  }
+ 	  console.log(newTextSize);
+ 	  changeSize = newTextSize + 'px';
+ 	  isChanged = true;
 	});
 
 	//this is the function for opening and closing the settings
