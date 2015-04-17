@@ -9,56 +9,30 @@ var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good S
 
 function AddRowFunction(){
 
-		///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
-		var newTextSize = document.getElementById('inpText').value;
-        var changeSize = '16px';
+	///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
+	var newTextSize = document.getElementById('inpText').value;
+	var changeSize = '16px';
+	
+	changeSize = newTextSize + "px";
+				
+	var emLength = document.getElementsByTagName('tr').length;
+	for(var x = 0; x < emLength; x++){
+		document.getElementsByTagName('tr')[x].style.fontSize = changeSize;
+	}
+	
+	//this changes the color of the newly added rows
+	var txtcolor1 = "#" + document.getElementById('inpColorScheme1').value;
+	var txtcolor2 = "#" + document.getElementById('inpColorScheme2').value;
+	var rowLength = document.getElementById('table1').rows.length;
+	
+	for(var x = 0; x < rowLength; x += 2){
+		document.getElementById('table1').rows[x].style.background = txtcolor1;
+	}
+	for(var x = 1; x < rowLength; x += 2){
+		document.getElementById('table1').rows[x].style.background = txtcolor2;
+	}
 
-         if(newTextSize == 12){
-          changeSize = '12px';
-        }
-        if(newTextSize == 13){
-          changeSize = '13px';
-        }
-        if(newTextSize == 14){
-          changeSize = '14px';
-        }
-        if(newTextSize == 15){
-          changeSize = '15px';
-        }
-        if(newTextSize == 16){
-          changeSize = '16px';
-        }
-        if(newTextSize == 17){
-          changeSize = '17px';
-        }
-        if(newTextSize == 18){
-          changeSize = '18px';
-        }
-        if(newTextSize == 19){
-          changeSize = '19px';
-        }
-        if(newTextSize == 20){
-          changeSize = '20px';
-        }
-
-        var emLength = document.getElementsByTagName('tr').length;
-            for(var x = 0; x < emLength; x++){
-                document.getElementsByTagName('tr')[x].style.fontSize = changeSize;
-              }
-              //this changes the color of the newly added rows
-        var txtcolor = document.getElementById('inpColorScheme1').value;
-    	txtcolor = '#' + txtcolor;
-    	var rowLength = document.getElementById('table1').rows.length;
-    		for(var x = 2; x < rowLength; x += 2){
-      		document.getElementById('table1').rows[x].style.background = txtcolor;
-    	}
-    	txtcolor = document.getElementById('inpColorScheme2').value;
-    	txtcolor = '#' + txtcolor;
-    		for(var x = 1; x < rowLength; x += 2){
-     		document.getElementById('table1').rows[x].style.background = txtcolor;
-    	}
-
-    	///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
+	///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
 
 	Name =$ ('#autocomplete')[0].value;
 	var yourSelect = document.getElementById( "selectBox" );
@@ -101,7 +75,7 @@ function AddRowFunction(){
 				var tempyee= document.getElementById("label0")
 				tempyee.innerHTML = boxValue.val;
 				var newId = "selectBox" + y ;
-				var newId2 = "label"  + y
+				var newId2 = "label"	+ y
 				//This will be the Id for the selectBox in row
 
 				document.getElementById("selectBox0").id = newId;
@@ -153,7 +127,7 @@ function deleteRowAll() {
 function Swagger (me,d2){
 	var boxValue
 		for ( var k = 0; k<fundata.length ; k ++) {
-			if ( me.options[ me.selectedIndex ].value == fundata[k].label && me.options[ me.selectedIndex ].value  != "Fundamentals") {
+			if ( me.options[ me.selectedIndex ].value == fundata[k].label && me.options[ me.selectedIndex ].value	!= "Fundamentals") {
 			boxValue = fundata[k].val;
 			break;
 			}

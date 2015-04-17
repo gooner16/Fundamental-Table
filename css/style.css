@@ -4,9 +4,9 @@
 .autocomplete-suggestions strong { font-weight: normal; color: #3399ff; }
 
 /*	Define the background color for all the ODD background rows	*/
-.table1 tr:nth-child(odd) {background: #FFFFFF;}
+.table1 tr:nth-child(1) {background: #FFFFFF;}
 /*	Define the background color for all the EVEN background rows	*/
-.table1 tr:nth-child(even) {background: #A8C6FA;}
+.table1 tr:nth-child(2) {background: #A8C6FA;}
 /*Remove unnecessary border */
 .table1 td.noLeft {border-left:0;}
 
