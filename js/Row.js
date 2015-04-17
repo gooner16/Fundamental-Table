@@ -2,37 +2,15 @@ var x1 = 0;
 var y = 0;
 var arrayExe = [true];
 
+//About colors
+var rowcolor1, rowcolor2
+
 var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base","Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
 //"EPS Diluted","Operating Cash Flow",
 //Number of times either of the functions has been executed
 
 
 function AddRowFunction(){
-
-	///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
-	var newTextSize = document.getElementById('inpText').value;
-	var changeSize = '16px';
-	
-	changeSize = newTextSize + "px";
-				
-	var emLength = document.getElementsByTagName('tr').length;
-	for(var x = 0; x < emLength; x++){
-		document.getElementsByTagName('tr')[x].style.fontSize = changeSize;
-	}
-	
-	//this changes the color of the newly added rows
-	var txtcolor1 = "#" + document.getElementById('inpColorScheme1').value;
-	var txtcolor2 = "#" + document.getElementById('inpColorScheme2').value;
-	var rowLength = document.getElementById('table1').rows.length;
-	
-	for(var x = 0; x < rowLength; x += 2){
-		document.getElementById('table1').rows[x].style.background = txtcolor1;
-	}
-	for(var x = 1; x < rowLength; x += 2){
-		document.getElementById('table1').rows[x].style.background = txtcolor2;
-	}
-
-	///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
 
 	Name =$ ('#autocomplete')[0].value;
 	var yourSelect = document.getElementById( "selectBox" );
@@ -87,7 +65,33 @@ function AddRowFunction(){
 	} else {
 		document.getElementById("alertStock").innerHTML = "Please enter a stock ticker.";
 	}
-	yourSelect.selectedIndex = 0;
+	yourSelect.selectedIndex = 0; //Change option to "Fundamentals"
+
+	///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
+	var newTextSize = document.getElementById('inpText').value;
+	var changeSize = '16px';
+	
+	changeSize = newTextSize + "px";
+				
+	var emLength = document.getElementsByTagName('tr').length;
+	for(var x = 0; x < emLength; x++){
+		document.getElementsByTagName('tr')[x].style.fontSize = changeSize;
+	}
+	
+	//this changes the color of the newly added rows
+	rowcolor1 = "#" + document.getElementById('inpColorScheme1').value;
+	rowcolor2 = "#" + document.getElementById('inpColorScheme2').value;
+	var rowLength = document.getElementById('table1').rows.length;
+	console.log(rowLength)
+	console.log("x1=" + x1)
+	for(var x = 0; x < rowLength; x += 2){
+		document.getElementById('table1').rows[x].style.background = rowcolor1;
+	}
+	for(var x = 1; x < rowLength; x += 2){
+		document.getElementById('table1').rows[x].style.background = rowcolor2;
+	}
+
+	///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
 }
 
 
@@ -114,6 +118,7 @@ function deleteRow(r) {
 	x1--;
 	//for "x", please see above
 
+	//--------------------------------------
 	var txtcolor = document.getElementById('inpColorScheme1').value;
 	 txtcolor = '#' + txtcolor;
 	 var rowLength = document.getElementById('table1').rows.length;

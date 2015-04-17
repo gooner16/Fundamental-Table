@@ -67,10 +67,10 @@ StockRender.AppRender.register({
 	var changeSize; 
 	
 	$( "#inpText" ).change(function() {
-	  var newTextSize = document.getElementById('inpText').value;
- 	  console.log(newTextSize);
- 	  changeSize = newTextSize + 'px';
- 	  isChanged = true;
+		var newTextSize = document.getElementById('inpText').value;
+ 		console.log(newTextSize);
+ 		changeSize = newTextSize + 'px';
+ 		isChanged = true; //Don't know what it does yet
 	});
 
 	//this is the function for opening and closing the settings
@@ -78,59 +78,60 @@ StockRender.AppRender.register({
 	var click = 0;
 	var fundChanged;
 	$( "#opener" ).click(function() {
-	    count += 1;
-	    click = count % 2;
-	    console.log('click', click);
-	    if(click == 1){
-	      $("#settings").show();
-	      $("#table1").hide();
-	    } 
-	    if(click == 0) {
-	      $("#settings").hide();
-	      $("#table1").show();
-	      if(isChanged == true){
-	      console.log(changeSize);
-	      var pLength = document.getElementsByTagName('tr').length;
-	      for(var x = 0; x < pLength; x++){
-	         document.getElementsByTagName('tr')[x].style.fontSize = changeSize;
-	      }
-	      var emLength = document.getElementsByTagName('tr').length;
-	      for(var x = 0; x < emLength; x++){
-	      document.getElementsByTagName('tr')[x].style.fontSize = changeSize;
-	      }
-	  	  	isChanged = false;
-	  	  }
-	      if(fundChanged == true){
-	         var rowNum = document.getElementById("table1").rows.length; 
-	              while(rowNum > 4) 
-	              {
-	               document.getElementById("table1").deleteRow(rowNum - 2);
-	               rowNum = document.getElementById("table1").rows.length; 
-	               stockLength = 0;
-	               numAddedStocks = 0;
-	              }
-	              fundChanged = false;
-	      }
-	    }
+		count += 1;
+		click = count % 2;
+		console.log('click', click);
+		if(click == 1){
+			$("#settings").show();
+			$("#table1").hide();
+		} 
+		if(click == 0) {
+			$("#settings").hide();
+			$("#table1").show();
+			if(isChanged == true){
+				console.log(changeSize);
+				var pLength = document.getElementsByTagName('tr').length;
+				for(var x = 0; x < pLength; x++){
+			 		document.getElementsByTagName('tr')[x].style.fontSize = changeSize;
+				}
+				var emLength = document.getElementsByTagName('tr').length;
+				for(var x = 0; x < emLength; x++){
+					document.getElementsByTagName('tr')[x].style.fontSize = changeSize;
+				}
+				isChanged = false;
+			}
+			if(fundChanged == true){
+		 		var rowNum = document.getElementById("table1").rows.length; 
+				
+				while(rowNum > 4) {
+					 document.getElementById("table1").deleteRow(rowNum - 2);
+					 rowNum = document.getElementById("table1").rows.length; 
+					 stockLength = 0;
+					 numAddedStocks = 0;
+				}
+				
+				fundChanged = false;
+			}
+		}
 	});
 
 	//this function is used for the dropdown list (modify if you need it, if not delete)
 	$( "#fundimental" ).change(function() {
-	        var e = document.getElementById("fundimental");
-	        fund = e.options[e.selectedIndex].text;
-	        console.log(fund);
-	        fundChanged = true;
+		var e = document.getElementById("fundimental");
+		fund = e.options[e.selectedIndex].text;
+		console.log(fund);
+		fundChanged = true;
 				Runner.loadFundimental(AppData);
 			});
 	//functions that determine which color wheel you changed
 	$( "#inpColorScheme1" ).click(function() {
-	  Runner.colorType('scheme1');
+		Runner.colorType('scheme1');
 	});
 	$( "#inpColorScheme2" ).click(function() {
-	  Runner.colorType('scheme2');
+		Runner.colorType('scheme2');
 	});
 	$( "#btnTextColor" ).click(function() {
-	  Runner.colorType('text');
+		Runner.colorType('text');
 	});
 
 
@@ -160,7 +161,7 @@ Runner.loadData = function loadData(AppData, stockId){
 	 		var ek = data.response.data[0][1]
 
 			if ( ek / 1000000000 > 1 || ek / 1000000000 < -1){
-			ek =  (ek / 1000000000).toFixed(2) + " bn"
+			ek =	(ek / 1000000000).toFixed(2) + " bn"
 			}
 
 			else if( ek / 1000000 >1 || ek / 1000000 < -1){
@@ -195,32 +196,32 @@ colorChangeType = type;
 };
 //changes the color of the rows
 Runner.colorChange = function colorChange(){
-     var txtcolor;
-  if(colorChangeType == 'text'){
-    txtcolor = document.getElementById('btnTextColor').value;
-    txtcolor = '#' + txtcolor;
-     var pLength = document.getElementsByTagName('tr').length;
-      for(var x = 0; x < pLength; x++){
-         document.getElementsByTagName('tr')[x].style.color = txtcolor;
-      }
-  }
-   if(colorChangeType == 'scheme1'){
-    txtcolor = document.getElementById('inpColorScheme1').value;
-    txtcolor = '#' + txtcolor;
-    var rowLength = document.getElementById('table1').rows.length;
-    for(var x = 2; x < rowLength; x += 2){
-      document.getElementById('table1').rows[x].style.background = txtcolor;
-    }
-  }
-   if(colorChangeType == 'scheme2'){
-    txtcolor = document.getElementById('inpColorScheme2').value;
-    txtcolor = '#' + txtcolor;
-    var rowLength = document.getElementById('table1').rows.length;
-    for(var x = 1; x < rowLength; x += 2){
-      document.getElementById('table1').rows[x].style.background = txtcolor;
-    }
+	 var txtcolor;
+	if(colorChangeType == 'text'){
+	txtcolor = document.getElementById('btnTextColor').value;
+	txtcolor = '#' + txtcolor;
+	 var pLength = document.getElementsByTagName('tr').length;
+		for(var x = 0; x < pLength; x++){
+	 document.getElementsByTagName('tr')[x].style.color = txtcolor;
+		}
+	}
+	 if(colorChangeType == 'scheme1'){
+	txtcolor = document.getElementById('inpColorScheme1').value;
+	txtcolor = '#' + txtcolor;
+	var rowLength = document.getElementById('table1').rows.length;
+	for(var x = 2; x < rowLength; x += 2){
+		document.getElementById('table1').rows[x].style.background = txtcolor;
+	}
+	}
+	 if(colorChangeType == 'scheme2'){
+	txtcolor = document.getElementById('inpColorScheme2').value;
+	txtcolor = '#' + txtcolor;
+	var rowLength = document.getElementById('table1').rows.length;
+	for(var x = 1; x < rowLength; x += 2){
+		document.getElementById('table1').rows[x].style.background = txtcolor;
+	}
 
-    ///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
+	///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
 
-  }     
+	}	 
 }
