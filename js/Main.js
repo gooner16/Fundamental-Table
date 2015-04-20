@@ -83,11 +83,13 @@ StockRender.AppRender.register({
 		console.log('click', click);
 		if(click == 1){
 			$("#settings").show();
-			$("#table1").hide();
+			//$("#table1").hide();
 		} 
 		if(click == 0) {
 			$("#settings").hide();
-			$("#table1").show();
+			//$("#table1").show();
+			
+			//Change of text size
 			if(isChanged == true){
 				console.log(changeSize);
 				var pLength = document.getElementsByTagName('tr').length;
@@ -109,9 +111,11 @@ StockRender.AppRender.register({
 					 stockLength = 0;
 					 numAddedStocks = 0;
 				}
-				
 				fundChanged = false;
 			}
+
+			//Change of row color
+			Settings_rowColor();
 		}
 	});
 

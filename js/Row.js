@@ -1,4 +1,4 @@
-var x1 = 0;
+var rowLength = 3;
 var y = 0;
 var arrayExe = [true];
 
@@ -10,7 +10,7 @@ var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good S
 //Number of times either of the functions has been executed
 
 
-function AddRowFunction(){
+function AddRowFunction() {
 
 	Name =$ ('#autocomplete')[0].value;
 	var yourSelect = document.getElementById( "selectBox" );
@@ -26,13 +26,13 @@ function AddRowFunction(){
 
 
 			var table = document.getElementById("table1");
-			var row = table.insertRow(2+x1);
+			var row = table.insertRow(rowLength - 1);
 			var cell1 = row.insertCell(0);
 			var cell2 = row.insertCell(1);
 			var cell3 = row.insertCell(2);
 			var cell4 = row.insertCell(3);
 			
-			x1++; //Next row will be added below this one
+			rowLength++; //Next row will be added below this one
 			y++; //This is used to assign a different string to every selectBox
 			
 			var boxValue
@@ -67,35 +67,12 @@ function AddRowFunction(){
 	}
 	yourSelect.selectedIndex = 0; //Change option to "Fundamentals"
 
-	///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
-	var newTextSize = document.getElementById('inpText').value;
-	var changeSize = '16px';
-	
-	changeSize = newTextSize + "px";
-				
-	var emLength = document.getElementsByTagName('tr').length;
-	for(var x = 0; x < emLength; x++){
-		document.getElementsByTagName('tr')[x].style.fontSize = changeSize;
-	}
-	
-	//this changes the color of the newly added rows
-	rowcolor1 = "#" + document.getElementById('inpColorScheme1').value;
-	rowcolor2 = "#" + document.getElementById('inpColorScheme2').value;
-	var rowLength = document.getElementById('table1').rows.length;
-	console.log(rowLength)
-	console.log("x1=" + x1)
-	for(var x = 0; x < rowLength; x += 2){
-		document.getElementById('table1').rows[x].style.background = rowcolor1;
-	}
-	for(var x = 1; x < rowLength; x += 2){
-		document.getElementById('table1').rows[x].style.background = rowcolor2;
-	}
-
-	///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
+	Settings_textSize(); //Change text size
+	Settings_rowColor(); //Change color
 }
 
 
-function AppendOptions1(me,num,ind){
+function AppendOptions1(me,num,ind) {
 	if (!(arrayExe[num])) {
 		for (var i = 0; i < array.length; i++) {
 			var option = document.createElement("option");
@@ -115,33 +92,21 @@ function AppendOptions1(me,num,ind){
 function deleteRow(r) {
 	var i = r.parentNode.parentNode.rowIndex;
 	document.getElementById("table1").deleteRow(i);
-	x1--;
-	//for "x", please see above
+	rowLength -- ;
 
-	//--------------------------------------
-	var txtcolor = document.getElementById('inpColorScheme1').value;
-	 txtcolor = '#' + txtcolor;
-	 var rowLength = document.getElementById('table1').rows.length;
-	 for(var x = 2; x < rowLength; x += 2){
-	 document.getElementById('table1').rows[x].style.background = txtcolor;
-	 }
-	 txtcolor = document.getElementById('inpColorScheme2').value;
-	 txtcolor = '#' + txtcolor;
-	 for(var x = 1; x < rowLength; x += 2){
-	 document.getElementById('table1').rows[x].style.background = txtcolor;
-	 }
+	Settings_rowColor(); //Change color of rows
 }
 
 //clears all added rows
 function deleteRowAll() {
-	for (var i = 0; i < x1; i++) {
+	for (var i = 0; i < rowLength - 3; i++) {
 		document.getElementById("table1").deleteRow(2);
 	};
 
-	x1 = 0;
+	rowLength = 3;
 }
 
-function Swagger (me,d2){
+function Swagger (me,d2) {
 	var boxValue
 		for ( var k = 0; k<fundata.length ; k ++) {
 			if ( me.options[ me.selectedIndex ].value == fundata[k].label && me.options[ me.selectedIndex ].value	!= "Fundamentals") {
@@ -156,3 +121,36 @@ var lastChar = myString.charAt(stringLength - 1); // this will be the string "."
 document.getElementById("label" + lastChar).innerHTML= boxValue
 
 }
+
+///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
+function Settings_textSize () {
+	//This changes the size of text
+	var newTextSize = document.getElementById('inpText').value;
+	var changeSize = '16px';
+	
+	changeSize = newTextSize + "px";
+				
+	var emLength = document.getElementsByTagName('tr').length;
+	for(var x = 0; x < emLength; x++) {
+		document.getElementsByTagName('tr')[x].style.fontSize = changeSize;
+	}
+}
+
+function Settings_rowColor () {
+	//this changes the color of the newly added rows
+	rowcolor1 = "#" + document.getElementById('inpColorScheme1').value;
+	rowcolor2 = "#" + document.getElementById('inpColorScheme2').value;
+			console.log(rowcolor1); //This is different for Chrome and Firefox
+	/*	Change the background color for all the ODD rows	*/
+	for(var x = 2; x < rowLength; x += 2) {
+		document.getElementById('table1').rows[x].style.background = rowcolor1;
+	}
+	/*	Change the background color for all the EVEN rows	*/
+	for(var x = 1; x < rowLength; x += 2) {
+		document.getElementById('table1').rows[x].style.background = rowcolor2;
+	}
+	document.getElementById('table1').rows[0].style.background = rowcolor1;
+	document.getElementById('table1').rows[(rowLength - 1)].style.background = rowcolor1;
+
+}
+///////////////////////////////////////////////*Settings*//////////////////////////////////////////////
