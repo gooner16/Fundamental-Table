@@ -112,9 +112,8 @@ StockRender.AppRender.register({
 					fundChanged = false;
 				}
 
-				//Change of text and row colors
-				Settings_rowColor();
-				Settings_textColor();
+				//Upon confirming settings changes
+				Settings_all();
 			}
 			console.log('settingsShown', settingsShown);
 		})

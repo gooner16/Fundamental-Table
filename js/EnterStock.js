@@ -2,7 +2,7 @@
 
 window.onload = function() {
 	//Change color of HTML first
-	Settings_rowColor();
+	Settings_all();
 
 	document.getElementById('enterStock').onclick = function(event) {
 		var span, input, text;

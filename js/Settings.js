@@ -23,13 +23,24 @@ function Settings_textColor () {
 	textColor = "#" + document.getElementById('inpTextColor').value;
 
 	//You can only change "getElementsByTagName" this way, don't attempt to change the following code. 1--
-	var pLength = document.getElementsByTagName('tr').length;
+	var pLength
+
+	pLength = document.getElementsByTagName('tr').length;
 	for(var x = 0; x < pLength; x++) {
 		document.getElementsByTagName('tr')[x].style.color = textColor;
 	}
+
+	pLength = document.getElementsByTagName('option').length;
+	for(var x = 0; x < pLength; x++) {
+		document.getElementsByTagName('option')[x].style.color = textColor;
+	}
+	
+	pLength = document.getElementsByTagName('select').length;
+	for(var x = 0; x < pLength; x++) {
+		document.getElementsByTagName('select')[x].style.color = textColor;
+	}
 	// --1
 }
-
 
 function Settings_rowColor () {
 
@@ -46,4 +57,10 @@ function Settings_rowColor () {
 	}
 	document.getElementById('table1').rows[0].style.background = rowColor1;
 	document.getElementById('table1').rows[(rowLength - 1)].style.background = rowColor1;
+}
+
+function Settings_all () {
+	Settings_textSize();
+	Settings_textColor();
+	Settings_rowColor();
 }

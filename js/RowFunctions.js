@@ -65,8 +65,7 @@ function AddRowFunction() {
 	}
 	yourSelect.selectedIndex = 0; //Change option to "Fundamentals"
 
-	Settings_textSize(); //Change text size
-	Settings_rowColor(); //Change color
+	Settings_all(); //Change text size
 }
 
 
