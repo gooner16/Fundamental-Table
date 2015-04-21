@@ -1,5 +1,10 @@
 'use strict';
-// For all settings fucntions 
+// For all settings fucntions ------------>
+
+// Global variables
+var textColor;
+var rowColor1, rowColor2;
+
 
 function Settings_textSize () {
 	//This changes the size of text
@@ -14,19 +19,31 @@ function Settings_textSize () {
 	}
 }
 
+function Settings_textColor () {
+	textColor = "#" + document.getElementById('inpTextColor').value;
+
+	//You can only change "getElementsByTagName" this way, don't attempt to change the following code. 1--
+	var pLength = document.getElementsByTagName('tr').length;
+	for(var x = 0; x < pLength; x++) {
+		document.getElementsByTagName('tr')[x].style.color = textColor;
+	}
+	// --1
+}
+
+
 function Settings_rowColor () {
-	//this changes the color of the newly added rows
-	rowcolor1 = "#" + document.getElementById('inpColorScheme1').value;
-	rowcolor2 = "#" + document.getElementById('inpColorScheme2').value;
-			console.log(rowcolor1); //This is different for Chrome and Firefox
+
+	rowColor1 = "#" + document.getElementById('inpColorScheme1').value;
+	rowColor2 = "#" + document.getElementById('inpColorScheme2').value;
+	
 	/*	Change the background color for all the ODD rows	*/
 	for(var x = 2; x < rowLength; x += 2) {
-		document.getElementById('table1').rows[x].style.background = rowcolor1;
+		document.getElementById('table1').rows[x].style.background = rowColor1;
 	}
 	/*	Change the background color for all the EVEN rows	*/
 	for(var x = 1; x < rowLength; x += 2) {
-		document.getElementById('table1').rows[x].style.background = rowcolor2;
+		document.getElementById('table1').rows[x].style.background = rowColor2;
 	}
-	document.getElementById('table1').rows[0].style.background = rowcolor1;
-	document.getElementById('table1').rows[(rowLength - 1)].style.background = rowcolor1;
+	document.getElementById('table1').rows[0].style.background = rowColor1;
+	document.getElementById('table1').rows[(rowLength - 1)].style.background = rowColor1;
 }

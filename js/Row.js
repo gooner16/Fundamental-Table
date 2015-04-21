@@ -3,9 +3,6 @@ var rowLength = 3;
 var y = 0;
 var arrayExe = [true];
 
-//About colors
-var rowcolor1, rowcolor2
-
 var array = ["Assets","Book Value","Capital Expenditures","Cash","Cost of Good Sold","DPS","EPS Base","Float Shares","Good Will","Income After Tax","Income Before Tax","Institutional Own","Inventory","Liability","Long Term Debt","Net Income","Number of Employees","Operating Income","Revenue","Short Term Debt","Total Operating Expense"];
 //"EPS Diluted","Operating Cash Flow",
 //Number of times either of the functions has been executed
