@@ -1,9 +1,12 @@
 //'use strict';
 
 window.onload = function() {
+	//Change color of HTML first
+	Settings_rowColor();
+
 	document.getElementById('enterStock').onclick = function(event) {
 		var span, input, text;
-		
+
 		// Get the event (handle MS difference)
 		event = event || window.event;
 		
